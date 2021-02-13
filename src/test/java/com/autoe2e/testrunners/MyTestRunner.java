@@ -8,8 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"src/main/java/features"},
-		glue = {"stepdefinitions","hooks"},
+		features = {"src/test/resources/features/LoginPage.feature"},
+		glue = {"src/test/java/stepdefinitions","hooks"},
 		plugin = {"pretty"}
 		
 		)

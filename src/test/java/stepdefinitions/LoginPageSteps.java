@@ -17,7 +17,6 @@ public class LoginPageSteps {
 	
 	@Given("User is on the Hackerrank page")
 	public void user_is_on_the_hackerrank_page() {
-	    
 		DriveFactory.getDriver().get("https://www.hackerrank.com/auth/login?h_l=body_middle_left_button&h_r=login");
 		
 	}

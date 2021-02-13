@@ -23,7 +23,9 @@ public class DriveFactory {
 		
 		if (browsername.equals("chrome")) {
 			
-			WebDriverManager.chromedriver().arch64().version("88.0.4324.104").setup();
+			System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+			//WebDriverManager.chromedriver().browserVersion("88.0.4324.104 ").setup();
+			
 			TLocalDriver.set(new ChromeDriver());
 			
 		} else if (browsername.equals("firefox")) {
@@ -41,14 +43,10 @@ public class DriveFactory {
 			System.out.println("Please pass the required broswer name");
 		}
 		
-		
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
-		
 		return getDriver();
 	}
-	
-	
 	
 	
 	/*

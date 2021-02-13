@@ -1,5 +1,7 @@
 package com.autoe2e.pages;
 
+import javax.sound.midi.Track;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -58,5 +60,14 @@ public class LoginPage {
 	public void clickOnLogin() {
 		driver.findElement(LoginButton).click();
 	}
+	
+	public DashBoardpage doLogin(String Username ,String password ) {
+		driver.findElement(userName).sendKeys(Username);
+		driver.findElement(passWord).sendKeys(password);
+		driver.findElement(LoginButton).click();
+		
+		return new DashBoardpage(driver);
+	}
+	
 
 }
