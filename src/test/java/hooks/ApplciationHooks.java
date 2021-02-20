@@ -42,9 +42,9 @@ public class ApplciationHooks {
 	@Before(order = 1)
 	public void launchBrowser(){
 
-
+		String browserName = prop.getProperty("browser");
 		driverfactory = new DriveFactory();
-		driver = driverfactory.initialise_driver(prop.getProperty("browser"));
+		driver = driverfactory.initialise_driver(browserName);
 
 
 	}

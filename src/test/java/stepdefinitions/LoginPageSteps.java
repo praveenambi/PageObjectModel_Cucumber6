@@ -25,6 +25,7 @@ public class LoginPageSteps {
 	public void user_gets_the_title_of_the_page() {
 		
 		loginPageTitle = loginPage.getLoginPageTitle();
+		System.out.println("The login page title is " + loginPageTitle);
 	  
 	}
 
@@ -37,8 +38,9 @@ public class LoginPageSteps {
 
 	@Given("user is on the login page")
 	public void user_is_on_the_login_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		
+		DriveFactory.getDriver().get("https://www.hackerrank.com/auth/login?h_l=body_middle_left_button&h_r=login");
+	   
 	}
 
 	@Then("Forgot password link should be present")
