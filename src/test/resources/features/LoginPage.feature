@@ -1,3 +1,4 @@
+@Login
 Feature: HackerRank login page feature
 
   Scenario: Login page title
@@ -9,6 +10,7 @@ Feature: HackerRank login page feature
     Given user is on the login page
     Then Forgot password link should be present
 
+ @Skip_scenario
   Scenario: Login with valid credentials
     Given user is on the login page
     When user enters the emails id "Praveenambi9@gmail.com"

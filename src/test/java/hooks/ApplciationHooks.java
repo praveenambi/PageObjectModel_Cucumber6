@@ -6,6 +6,7 @@ package hooks;
 import java.util.Properties;
 
 import org.apache.pdfbox.util.filetypedetector.FileType;
+import org.junit.Assume;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -28,9 +29,21 @@ public class ApplciationHooks {
 	private WebDriver driver;
 	private Properties prop;
 
+	
+	
+	/*How to skip a scenario in excecution using the hooks concepts*/
+	@Before(value = "@Skip_scenario",order = 0)
+	public void skip_scenario(Scenario scenario){
+		System.out.println("SKIPPED SCENARIO IS " +scenario.getName() );
+		Assume.assumeTrue(false);
 
 
-	@Before(order = 0)
+	}
+
+
+
+
+	@Before(order = 1)
 	public void getProperty(){
 
 		configread = new ConfigReader();
@@ -39,7 +52,7 @@ public class ApplciationHooks {
 	}
 
 
-	@Before(order = 1)
+	@Before(order = 2)
 	public void launchBrowser(){
 
 		String browserName = prop.getProperty("browser");
@@ -55,8 +68,8 @@ public class ApplciationHooks {
 		driver.quit();
 	}
 
-	
-	
+
+
 	/*
 	 * 
 	 * Take the output type of file as Bytes , as its easy,
@@ -64,12 +77,12 @@ public class ApplciationHooks {
 	 */
 	@After(order = 1)
 	public void tearDown(Scenario scenario) {
-		
+
 		if (scenario.isFailed()) {
 			String scenarioName = scenario.getName().replaceAll(" ", "_");
 			byte[] sourcepath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(sourcepath, "image/png", scenarioName);
-			
+
 		}
 
 
