@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
  * This is te loginpage class , 
  *  where the objects and actions of the login page are defined
  * 
+ * Checking the PR 
  * 
  */
 
@@ -16,6 +17,8 @@ public class LoginPage {
 	
 	
 	public WebDriver driver;
+	
+	
 	
 	
 	// 1. Colllect the locators
